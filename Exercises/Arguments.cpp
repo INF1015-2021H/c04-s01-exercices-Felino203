@@ -8,28 +8,28 @@
 
 #include <string>
 
-#include <tclap/CmdLine.h>
+#include <tclap/cmdline.h>
 
-#include "Arguments.hpp"
+#include "arguments.hpp"
 
 using namespace std;
 using namespace std::literals;
 
 
-Arguments parseArgs(int argc, char* argv[]) {
-	TCLAP::CmdLine parser("What is it, citizen?");
+arguments parseargs(int argc, char* argv[]) {
+	tclap::cmdline parser("what is it, citizen?");
 
-	// Exo 2 : Arguments du programme
-	// TODO: Créer l'argument de nombre (--number)
-	TCLAP::ValueArg<int> numberArg; //...
-	parser.add(numberArg);
+	// exo 2 : arguments du programme
+	// todo: créer l'argument de nombre (--number)
+	tclap::valuearg<int> numberarg; //...
+	parser.add(numberarg);
 	
-	// TODO: Créer l'argument de fichier (-f et --filename)
-	TCLAP::ValueArg<string> filenameArg; //...
-	parser.add(filenameArg);
+	// todo: créer l'argument de fichier (-f et --filename)
+	tclap::valuearg<string> filenamearg; //...
+	parser.add(filenamearg);
 
 	parser.parse(argc, argv);
 
-	return {numberArg.getValue(), filenameArg.getValue()};
+	return {numberarg.getvalue(), filenamearg.getvalue()};
 }
 
